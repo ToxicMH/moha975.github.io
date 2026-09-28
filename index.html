@@ -144,6 +144,18 @@
 		const sessionKey = 'mawja-local-session-v1';
 		const localeKey = 'mawja-language';
 		let currentUser = null;
+		const accountMessages = {
+			ar: { duplicate:'هذا البريد مسجل بالفعل.', invalid:'البريد الإلكتروني أو كلمة المرور غير صحيحة.', created:'تم إنشاء الحساب على هذا الجهاز.', loggedIn:'تم تسجيل الدخول بنجاح.', storage:'تعذر حفظ الحساب في هذا المتصفح.', privacy:'بياناتك محفوظة على هذا الجهاز فقط، ولا يوجد خادم أو حماية حساب حقيقية.' },
+			en: { duplicate:'An account with this email already exists.', invalid:'Email or password is incorrect.', created:'Account created on this device.', loggedIn:'You are now logged in.', storage:'Could not save the account in this browser.', privacy:'Your data stays on this device. There is no server or real account security.' },
+			zh: { duplicate:'此电子邮件已注册。', invalid:'电子邮件或密码不正确。', created:'账号已在此设备创建。', loggedIn:'登录成功。', storage:'无法在此浏览器中保存账号。', privacy:'数据仅保存在此设备上，没有服务器或真实的账号安全保护。' },
+			hi: { duplicate:'इस ईमेल से खाता पहले से मौजूद है।', invalid:'ईमेल या पासवर्ड गलत है।', created:'इस डिवाइस पर खाता बनाया गया।', loggedIn:'आप लॉग इन हैं।', storage:'इस ब्राउज़र में खाता सहेजा नहीं जा सका।', privacy:'आपका डेटा इसी डिवाइस पर रहता है। कोई सर्वर या वास्तविक खाता सुरक्षा नहीं है।' },
+			es: { duplicate:'Ya existe una cuenta con este correo.', invalid:'El correo o la contraseña no son correctos.', created:'Cuenta creada en este dispositivo.', loggedIn:'Has iniciado sesión.', storage:'No se pudo guardar la cuenta en este navegador.', privacy:'Tus datos permanecen en este dispositivo. No hay servidor ni seguridad real de cuenta.' },
+			fr: { duplicate:'Un compte existe déjà avec cette adresse.', invalid:'Adresse e-mail ou mot de passe incorrect.', created:'Compte créé sur cet appareil.', loggedIn:'Vous êtes connecté.', storage:'Impossible d’enregistrer le compte dans ce navigateur.', privacy:'Vos données restent sur cet appareil. Aucun serveur ni sécurité réelle de compte.' },
+			bn: { duplicate:'এই ইমেইলে একটি অ্যাকাউন্ট রয়েছে।', invalid:'ইমেইল বা পাসওয়ার্ড সঠিক নয়।', created:'এই ডিভাইসে অ্যাকাউন্ট তৈরি হয়েছে।', loggedIn:'আপনি লগ ইন করেছেন।', storage:'এই ব্রাউজারে অ্যাকাউন্ট সংরক্ষণ করা যায়নি।', privacy:'আপনার তথ্য এই ডিভাইসেই থাকে। কোনো সার্ভার বা প্রকৃত অ্যাকাউন্ট নিরাপত্তা নেই।' },
+			pt: { duplicate:'Já existe uma conta com este e-mail.', invalid:'E-mail ou senha incorretos.', created:'Conta criada neste dispositivo.', loggedIn:'Você entrou na sua conta.', storage:'Não foi possível salvar a conta neste navegador.', privacy:'Seus dados ficam neste dispositivo. Não há servidor nem segurança real de conta.' },
+			ru: { duplicate:'Аккаунт с такой почтой уже существует.', invalid:'Неверная почта или пароль.', created:'Аккаунт создан на этом устройстве.', loggedIn:'Вы вошли в аккаунт.', storage:'Не удалось сохранить аккаунт в этом браузере.', privacy:'Данные хранятся на этом устройстве. Сервера и настоящей защиты аккаунта нет.' },
+			ur: { duplicate:'اس ای میل پر اکاؤنٹ پہلے سے موجود ہے۔', invalid:'ای میل یا پاس ورڈ درست نہیں۔', created:'اس ڈیوائس پر اکاؤنٹ بن گیا۔', loggedIn:'آپ لاگ اِن ہو گئے ہیں۔', storage:'اس براؤزر میں اکاؤنٹ محفوظ نہیں ہو سکا۔', privacy:'آپ کا ڈیٹا اسی ڈیوائس پر ہے۔ کوئی سرور یا حقیقی اکاؤنٹ سیکیورٹی نہیں۔' }
+		};
 		const locales = {
 			ar: { home:'الرئيسية',discover:'اكتشف',videos:'الفيديوهات القصيرة',messages:'الرسائل',saved:'المحفوظات',createPost:'إنشاء منشور',search:'ابحث عن أشخاص، مواضيع...',login:'تسجيل الدخول',logout:'تسجيل الخروج',welcomeSubtitle:'هذه مساحتك الخاصة. اكتب أفكارك واحتفظ بتعليقاتك هنا.',stories:'القصص',viewAll:'مشاهدة الكل',yourStory:'قصتك',emptyPosts:'لم تكتب أي منشور بعد. ابدأ بكتابة أول فكرة أو ذكرى لك ✨',name:'الاسم',email:'البريد الإلكتروني',password:'كلمة المرور',loginTitle:'مرحباً بعودتك',loginDescription:'سجّل الدخول لتتابع مساحتك ومنشوراتك.',loginSubmit:'تسجيل الدخول',signupPrompt:'ليس لديك حساب؟',signupSwitch:'إنشاء حساب',loginNote:'حسابات تجريبية على هذا الجهاز فقط؛ لا تستخدم كلمة مرور حقيقية.',privateSpace:'مساحتك الخاصة',editName:'تعديل الاسم',language:'اللغة',searchPosts:'ابحث في منشوراتك...',passwordPlaceholder:'8 أحرف على الأقل',signupDescription:'أنشئ حسابك المحلي وابدأ باستخدام موجة.',signupTitle:'أنشئ حسابك',signupSubmit:'إنشاء الحساب',loginPrompt:'لديك حساب بالفعل؟',loginSwitch:'تسجيل الدخول',welcome:'مرحباً {name}' },
 			en: { home:'Home',discover:'Explore',videos:'Short videos',messages:'Messages',saved:'Saved',createPost:'Create post',search:'Search people and topics...',login:'Log in',logout:'Log out',welcomeSubtitle:'Your private space. Write ideas and keep your notes here.',stories:'Stories',viewAll:'View all',yourStory:'Your story',emptyPosts:'No posts yet. Share your first thought or memory ✨',name:'Name',email:'Email address',password:'Password',loginTitle:'Welcome back',loginDescription:'Log in to return to your space and posts.',loginSubmit:'Log in',signupPrompt:'New here?',signupSwitch:'Create account',loginNote:'Demo accounts stay on this device. Do not use a real password.',privateSpace:'Your private space',editName:'Edit name',language:'Language',searchPosts:'Search your posts...',passwordPlaceholder:'At least 8 characters',signupDescription:'Create a local account to start using Mawja.',signupTitle:'Create your account',signupSubmit:'Create account',loginPrompt:'Already have an account?',loginSwitch:'Log in',welcome:'Welcome, {name}' },
@@ -168,6 +180,8 @@
 			loginForm.elements.password.placeholder = strings.passwordPlaceholder;
 			document.getElementById('search-input').placeholder = strings.searchPosts;
 			document.querySelector('.profile-mini small').textContent = strings.privateSpace;
+			const privacyNote = document.getElementById('privacy-note');
+			if (privacyNote) privacyNote.textContent = accountMessages[currentLocale].privacy;
 			document.getElementById('login-title').textContent = isSignupMode ? strings.signupTitle : strings.loginTitle;
 			document.getElementById('login-description').textContent = isSignupMode ? strings.signupDescription : strings.loginDescription;
 			document.getElementById('login-submit').textContent = isSignupMode ? strings.signupSubmit : strings.loginSubmit;
@@ -217,7 +231,7 @@
 			try {
 				const accounts = readAccounts();
 				if (isSignupMode) {
-					if (accounts[email]) { showToast(currentLocale === 'en' ? 'An account with this email already exists.' : 'هذا البريد مسجل بالفعل.'); return; }
+					if (accounts[email]) { showToast(accountMessages[currentLocale].duplicate); return; }
 					const name = loginForm.elements.name.value.trim().slice(0, 40);
 					const salt = crypto.randomUUID();
 					accounts[email] = { name, salt, passwordHash: await passwordDigest(password, salt) };
@@ -228,17 +242,17 @@
 					document.getElementById('login-name-field').hidden = true;
 					loginForm.elements.name.required = false;
 					closeLogin();
-					showToast(currentLocale === 'en' ? 'Account created on this device.' : 'تم إنشاء الحساب على هذا الجهاز.');
+					showToast(accountMessages[currentLocale].created);
 				} else {
 					const account = accounts[email];
-					if (!account || account.passwordHash !== await passwordDigest(password, account.salt)) { showToast(currentLocale === 'en' ? 'Email or password is incorrect.' : 'البريد الإلكتروني أو كلمة المرور غير صحيحة.'); return; }
+					if (!account || account.passwordHash !== await passwordDigest(password, account.salt)) { showToast(accountMessages[currentLocale].invalid); return; }
 					localStorage.setItem(sessionKey, email);
 					setLoggedIn({ email, name: account.name });
 					closeLogin();
-					showToast(currentLocale === 'en' ? 'You are now logged in.' : 'تم تسجيل الدخول بنجاح.');
+					showToast(accountMessages[currentLocale].loggedIn);
 				}
 				loginForm.reset();
-			} catch { showToast(currentLocale === 'en' ? 'Could not save the account in this browser.' : 'تعذر حفظ الحساب في هذا المتصفح.'); }
+			} catch { showToast(accountMessages[currentLocale].storage); }
 		});
 
 		document.querySelectorAll('.like-button').forEach((button) => button.addEventListener('click', () => {
@@ -294,7 +308,7 @@
 		});
 		const notice = document.createElement('div');
 		notice.className = 'private-notice';
-		notice.innerHTML = '<span>🔒</span><span><strong>مساحتك الخاصة</strong><small>بياناتك محفوظة في هذا المتصفح فقط؛ ليست محمية بكلمة مرور ولا تُزامَن مع الإنترنت.</small></span><button type="button" aria-label="تغيير الاسم">تعديل الاسم</button>';
+		notice.innerHTML = '<span>🔒</span><span><strong id="private-space-title">مساحتك الخاصة</strong><small id="privacy-note">بياناتك محفوظة على هذا الجهاز فقط، ولا يوجد خادم أو حماية حساب حقيقية.</small></span><button type="button" aria-label="تغيير الاسم">تعديل الاسم</button>';
 		document.querySelector('.topbar').after(notice);
 		const postsArea = document.createElement('div');
 		postsArea.id = 'personal-posts';
@@ -425,11 +439,13 @@
 			if (link.getAttribute('href') !== '#home') { event.preventDefault(); showToast('هذه مساحة شخصية؛ يمكنك كتابة منشوراتك وتعليقاتك هنا.'); }
 		}));
 		document.querySelectorAll('.story').forEach((story) => story.addEventListener('click', () => document.getElementById('open-create').click()));
+		document.getElementById('private-space-title').textContent = (locales[currentLocale] || locales.ar).privateSpace;
 		const activeEmail = localStorage.getItem(sessionKey);
 		const activeAccount = activeEmail && readAccounts()[activeEmail];
 		if (activeAccount) setLoggedIn({ email: activeEmail, name: activeAccount.name });
 		else { localStorage.removeItem(sessionKey); setLoggedIn(null); }
 		applyLocale();
+		if (!personalPosts.length) originalEmptyState.textContent = locales[currentLocale].emptyPosts;
 		renderAllPosts();
 	</script>
 </body>
