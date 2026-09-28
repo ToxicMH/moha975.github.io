@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#101114">
+	<meta name="description" content="موجة — مجتمعك الإبداعي لمشاركة اللحظات، الفيديوهات والأفكار.">
+	<title>موجة — مجتمعك الإبداعي</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="test.css">
+	<style>
+		.owner-picture{display:grid;width:38px;height:38px;flex:none;place-items:center;border:1px solid #765a91;border-radius:50%;background:linear-gradient(145deg,#59406e,#282232);color:#f1dfff;font-size:15px;font-weight:700}
+		.avatar-button .owner-picture{width:100%;height:100%;font-size:13px}
+		.story-ring .owner-picture{position:relative;z-index:1;width:100%;height:100%;border:2px solid #17181d;font-size:18px}
+		.composer-user .owner-picture{width:32px;height:32px;font-size:12px}
+		.mobile-nav .owner-picture{width:27px;height:27px;border-width:1.5px;font-size:10px}
+		.private-notice{margin-bottom:8px}
+		@media(max-width:600px){.private-notice{margin-top:12px}}
+	</style>
+</head>
+<body>
+	<div class="app-shell">
+		<aside class="sidebar">
+			<a class="brand" href="#home" aria-label="موجة، الصفحة الرئيسية">
+				<span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 23c5-11 9 11 15 0s10 11 15 0"/><path d="M5 14c5-11 9 11 15 0s10 11 15 0"/></svg></span>
+				<span>موجة<span class="brand-dot">.</span></span>
+			</a>
+			<nav class="main-nav" aria-label="التنقل الرئيسي">
+				<a class="nav-link active" href="#home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>الرئيسية</a>
+				<a class="nav-link" href="#discover"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>اكتشف</a>
+				<a class="nav-link" href="#videos"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></span>الفيديوهات القصيرة</a>
+				<a class="nav-link" href="#messages"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span>الرسائل <span class="nav-badge">3</span></a>
+				<a class="nav-link" href="#saved"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></span>المحفوظات</a>
+			</nav>
+			<div class="sidebar-divider"></div>
+			<button class="create-button" id="open-create"><span>＋</span> إنشاء منشور</button>
+			<a class="profile-mini" href="#profile"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="الصورة الشخصية لسارة"><span><strong>سارة العتيبي</strong><small>@sara.creates</small></span><span class="online-dot"></span></a>
+			<div class="sidebar-bottom"><span class="live-indicator"></span> أفكارك تستحق أن تُرى</div>
+		</aside>
+
+		<main class="main-content" id="home">
+			<header class="topbar">
+				<div class="mobile-brand"><span class="brand-mark"><svg viewBox="0 0 40 40"><path d="M5 23c5-11 9 11 15 0s10 11 15 0"/><path d="M5 14c5-11 9 11 15 0s10 11 15 0"/></svg></span>موجة<span class="brand-dot">.</span></div>
+				<label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="ابحث عن أشخاص، مواضيع..." aria-label="ابحث"></label>
+				<div class="topbar-actions"><button class="icon-button notification-button" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="avatar-button" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></button></div>
+			</header>
+			<div class="content-grid">
+				<section class="feed-column" aria-label="آخر المنشورات">
+					<div class="welcome-row"><div><p class="eyebrow">الاثنين، ٢٨ سبتمبر</p><h1>مرحباً سارة <span>✦</span></h1><p class="welcome-subtitle">هذه موجتك، شاركي العالم ما يلهمك.</p></div><button class="round-add" id="open-create-mobile" aria-label="أضيفي منشوراً">＋</button></div>
+					<section class="stories-section" aria-label="القصص"><div class="section-heading"><h2>القصص</h2><button class="text-button" id="view-stories">مشاهدة الكل <span>←</span></button></div><div class="stories-row">
+						<button class="story own-story" data-story="قصتك"><span class="story-ring add-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="قصتك"><i>＋</i></span><span>قصتك</span></button>
+						<button class="story" data-story="ليان"><span class="story-ring"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80" alt=""><i class="story-live"></i></span><span>ليان</span></button>
+						<button class="story" data-story="عمر"><span class="story-ring"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt=""></span><span>عمر</span></button>
+						<button class="story" data-story="نور"><span class="story-ring"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt=""></span><span>نور</span></button>
+						<button class="story" data-story="فهد"><span class="story-ring"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt=""></span><span>فهد</span></button>
+						<button class="story" data-story="جود"><span class="story-ring"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=120&q=80" alt=""></span><span>جود</span></button>
+						<button class="story" data-story="مازن"><span class="story-ring"><img src="https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=120&q=80" alt=""></span><span>مازن</span></button>
+					</div></section>
+					<div class="feed-toolbar"><div class="feed-tabs" role="tablist" aria-label="تصفية المنشورات"><button class="feed-tab active" data-filter="all" role="tab">لكِ</button><button class="feed-tab" data-filter="photo" role="tab">صور</button><button class="feed-tab" data-filter="video" role="tab">فيديوهات</button></div><button class="sort-button" id="sort-button"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg> الأحدث</button></div>
+
+					<article class="post-card" data-type="photo" data-search="ليان رحلة العلا صحراء تصوير سفر">
+						<div class="post-header"><img class="post-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=100&q=80" alt=""><div class="post-user"><strong>ليان الحربي <span class="verified">✓</span></strong><span>@layan.travels · منذ ساعتين</span></div><button class="more-button" aria-label="خيارات المنشور">···</button></div>
+						<p class="post-caption">بين صخور العُلا والسماء الواسعة، تذكّرت إن أجمل الطرق هي اللي ما نخطط لها ✨ <a href="#discover">#العلا</a> <a href="#discover">#رحلات_السعودية</a></p>
+						<div class="post-media landscape-media"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=85" alt="كثبان رملية ذهبية عند الغروب"><span class="media-location">⌖ العُلا، السعودية</span></div>
+						<div class="post-actions"><div class="action-group"><button class="action-button like-button" aria-label="إعجاب"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg></button><span class="like-count">٢٫٤ ألف</span><button class="action-button comment-button" aria-label="التعليقات"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></button><span>١٢٨</span><button class="action-button share-button" aria-label="مشاركة"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></button></div><button class="action-button bookmark-button" aria-label="حفظ المنشور"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button></div>
+						<div class="liked-by"><div class="tiny-avatars"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=50&q=70" alt=""><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=50&q=70" alt=""><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=50&q=70" alt=""></div><span>أعجب به <strong>نور</strong> و<strong>٢٬٤١٨ آخرون</strong></span></div>
+					</article>
+
+					<article class="post-card" data-type="video" data-search="عمر قهوة وصفة فيديو صباح">
+						<div class="post-header"><img class="post-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt=""><div class="post-user"><strong>عمر العبدالله <span class="verified">✓</span></strong><span>@omar.makes · منذ ٤ ساعات</span></div><button class="more-button" aria-label="خيارات المنشور">···</button></div>
+						<p class="post-caption">طقوس الصباح الصغيرة تصنع فرقاً كبيراً ☕️ وصفة قهوتي الباردة المفضلة في ٣٠ ثانية!</p>
+						<div class="post-media video-media"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85" alt="قهوة محضرة في مقهى بإضاءة دافئة"><button class="play-button" aria-label="تشغيل الفيديو"><svg viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z"/></svg></button><span class="video-label">▶ فيديو قصير · ٠:٣٠</span></div>
+						<div class="post-actions"><div class="action-group"><button class="action-button like-button" aria-label="إعجاب"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg></button><span class="like-count">٨٦٢</span><button class="action-button comment-button" aria-label="التعليقات"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></button><span>٤٣</span><button class="action-button share-button" aria-label="مشاركة"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></button></div><button class="action-button bookmark-button" aria-label="حفظ المنشور"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button></div>
+					</article>
+					<p class="empty-state" id="empty-state" hidden>ما لقينا منشورات تطابق بحثك. جرّبي كلمة ثانية ✨</p>
+				</section>
+
+				<aside class="right-column">
+					<section class="suggestions-card"><div class="section-heading"><h2>اقتراحات لكِ</h2><button class="text-button" id="more-suggestions">عرض الكل</button></div>
+						<div class="suggestion"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt=""><div><strong>نور القحطاني</strong><small>مبدعة · يتابعها ١٢ صديقاً</small></div><button class="follow-button">متابعة</button></div>
+						<div class="suggestion"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt=""><div><strong>فهد السالم</strong><small>تصوير وفيديو</small></div><button class="follow-button">متابعة</button></div>
+						<div class="suggestion"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=100&q=80" alt=""><div><strong>جود العبدلي</strong><small>موضة · يتابعها ٤ أصدقاء</small></div><button class="follow-button">متابعة</button></div>
+					</section>
+					<section class="trending-card"><div class="section-heading"><h2>يتصدر الآن <span class="sparkle">✦</span></h2><span class="live-pill"><i></i> مباشر</span></div>
+						<a class="trend-item" href="#discover"><span class="trend-number">01</span><span><strong>#شتاء_العلا</strong><small>١٢٫٨ ألف منشور</small></span><span class="trend-arrow">↗</span></a>
+						<a class="trend-item" href="#discover"><span class="trend-number">02</span><span><strong>#يوميات_مبدع</strong><small>٨٬٤٠٢ منشور</small></span><span class="trend-arrow">↗</span></a>
+						<a class="trend-item" href="#discover"><span class="trend-number">03</span><span><strong>#قهوة_الصباح</strong><small>٥٬١٨٠ منشور</small></span><span class="trend-arrow">↗</span></a>
+						<a class="trend-item" href="#discover"><span class="trend-number">04</span><span><strong>#عدستي</strong><small>٣٬٩٥٤ منشور</small></span><span class="trend-arrow">↗</span></a>
+					</section>
+					<div class="footer-links"><a href="#about">عن موجة</a><a href="#privacy">الخصوصية</a><a href="#help">المساعدة</a><span>© ٢٠٢٦ موجة</span></div>
+				</aside>
+			</div>
+		</main>
+	</div>
+	<nav class="mobile-nav" aria-label="التنقل للجوال"><a class="selected" href="#home" aria-label="الرئيسية"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></a><a href="#discover" aria-label="اكتشف"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a><button id="mobile-create" aria-label="إنشاء منشور">＋</button><a href="#videos" aria-label="الفيديوهات"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="#profile" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></a></nav>
+	<div class="toast" id="toast" role="status" aria-live="polite"></div>
+	<div class="modal-backdrop" id="create-modal" aria-hidden="true"><section class="create-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-heading"><h2 id="modal-title">موجتك القادمة ✦</h2><button class="modal-close" id="close-modal" aria-label="إغلاق">×</button></div><div class="composer-user"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""><strong>سارة العتيبي</strong></div><textarea id="post-input" placeholder="وش حابة تشاركين اليوم؟" rows="4"></textarea><div class="upload-area"><span>＋</span><strong>أضيفي صورة أو فيديو</strong><small>اسحبي الملف هنا أو اختاري من جهازك</small><input type="file" id="file-input" accept="image/*,video/*"></div><div class="modal-footer"><span>✧ شاركي لحظتك مع مجتمعك</span><button class="publish-button" id="publish-post">نشر المنشور <span>←</span></button></div></section></div>
+	<script>
+		const toast = document.getElementById('toast');
+		let toastTimer;
+		function showToast(message) { toast.textContent = message; toast.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('visible'), 2400); }
+
+		document.querySelectorAll('.like-button').forEach((button) => button.addEventListener('click', () => {
+			button.classList.toggle('liked');
+			const count = button.parentElement.querySelector('.like-count');
+			if (count) count.textContent = button.classList.contains('liked') ? 'أُعجب به للتو ♥' : (button.closest('.post-card').dataset.type === 'photo' ? '٢٫٤ ألف' : '٨٦٢');
+		}));
+		document.querySelectorAll('.bookmark-button').forEach((button) => button.addEventListener('click', () => { button.classList.toggle('saved'); showToast(button.classList.contains('saved') ? 'تم حفظ المنشور في مجموعتك ✦' : 'أُزيل المنشور من المحفوظات'); }));
+		document.querySelectorAll('.follow-button').forEach((button) => button.addEventListener('click', () => { const following = button.classList.toggle('following'); button.textContent = following ? 'تتابعين' : 'متابعة'; }));
+		document.querySelectorAll('.story').forEach((story) => story.addEventListener('click', () => showToast(story.dataset.story === 'قصتك' ? 'أضيفي صورة أو فيديو لقصتك ✨' : `قصة ${story.dataset.story} — لحظات جميلة تستحق المشاهدة ✨`)));
+		document.querySelectorAll('.comment-button').forEach((button) => button.addEventListener('click', () => showToast('قريباً — مساحة حوار ألطف تبدأ هنا 💬')));
+		document.querySelectorAll('.share-button').forEach((button) => button.addEventListener('click', () => showToast('تم تجهيز رابط المشاركة ✦')));
+		document.querySelectorAll('.play-button').forEach((button) => button.addEventListener('click', () => showToast('سيبدأ تشغيل الفيديو قريباً ▶')));
+		document.getElementById('view-stories').addEventListener('click', () => showToast('أنتِ تشاهدين أحدث القصص ✨'));
+		document.getElementById('more-suggestions').addEventListener('click', () => showToast('اقتراحات جديدة قادمة ✦'));
+		document.getElementById('sort-button').addEventListener('click', (event) => { const button = event.currentTarget; button.dataset.newest = button.dataset.newest !== 'true'; button.innerHTML = `<svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg> ${button.dataset.newest ? 'الأحدث' : 'الأكثر تفاعلاً'}`; showToast(`تم الترتيب حسب ${button.dataset.newest ? 'الأحدث' : 'الأكثر تفاعلاً'}`); });
+		document.querySelectorAll('.feed-tab').forEach((tab) => tab.addEventListener('click', () => { document.querySelectorAll('.feed-tab').forEach((item) => item.classList.remove('active')); tab.classList.add('active'); filterPosts(); }));
+		document.getElementById('search-input').addEventListener('input', filterPosts);
+		function filterPosts() {
+			const filter = document.querySelector('.feed-tab.active').dataset.filter;
+			const query = document.getElementById('search-input').value.trim().toLowerCase();
+			let visible = 0;
+				document.querySelectorAll('.post-card').forEach((post) => { const searchable = post.dataset.search || post.textContent.toLowerCase(); const matches = (filter === 'all' || post.dataset.type === filter) && (!query || searchable.includes(query)); post.hidden = !matches; if (matches) visible++; });
+			document.getElementById('empty-state').hidden = visible > 0;
+		}
+		const modal = document.getElementById('create-modal');
+		function openModal() { modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.getElementById('post-input').focus(); }
+		function closeModal() { modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); }
+		['open-create', 'open-create-mobile', 'mobile-create'].forEach((id) => document.getElementById(id).addEventListener('click', openModal));
+		document.getElementById('close-modal').addEventListener('click', closeModal);
+		modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+		document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
+		document.getElementById('file-input').addEventListener('change', (event) => { if (event.target.files[0]) showToast(`تم اختيار ${event.target.files[0].name} ✦`); });
+		// The private journal behavior is initialized below.
+
+		const OWNER_KEY = 'mawja-owner-name';
+		const POSTS_KEY = 'mawja-private-posts-v1';
+		const ownerName = localStorage.getItem(OWNER_KEY) || 'صاحب الموقع';
+		const feed = document.querySelector('.feed-column');
+		const originalEmptyState = document.getElementById('empty-state');
+		document.querySelectorAll('.post-card').forEach((post) => post.remove());
+		document.querySelectorAll('.story:not(.own-story)').forEach((story) => story.remove());
+		document.querySelectorAll('.right-column').forEach((column) => column.remove());
+		document.querySelectorAll('.profile-mini strong, .composer-user strong').forEach((name) => name.textContent = ownerName);
+		document.querySelector('.welcome-row h1').innerHTML = `مرحباً <span>${escapeText(ownerName)}</span> <span>✦</span>`;
+		document.querySelector('.welcome-subtitle').textContent = 'هذه مساحتك الخاصة. اكتب أفكارك واحتفظ بتعليقاتك هنا.';
+		document.querySelector('.profile-mini small').textContent = 'مساحتك الخاصة';
+		document.querySelectorAll('.profile-mini img, .avatar-button img, .own-story img, .composer-user img, .mobile-nav a:last-child img').forEach((image) => {
+			const badge = document.createElement('span');
+			badge.className = 'owner-picture';
+			badge.textContent = ownerName.slice(0, 1);
+			image.replaceWith(badge);
+		});
+		const notice = document.createElement('div');
+		notice.className = 'private-notice';
+		notice.innerHTML = '<span>🔒</span><span><strong>مساحتك الخاصة</strong><small>بياناتك محفوظة في هذا المتصفح فقط؛ ليست محمية بكلمة مرور ولا تُزامَن مع الإنترنت.</small></span><button type="button" aria-label="تغيير الاسم">تعديل الاسم</button>';
+		document.querySelector('.topbar').after(notice);
+		const postsArea = document.createElement('div');
+		postsArea.id = 'personal-posts';
+		originalEmptyState.textContent = 'لم تكتب أي منشور بعد. ابدأ بكتابة أول فكرة أو ذكرى لك ✨';
+		originalEmptyState.hidden = false;
+		originalEmptyState.id = 'empty-state';
+		originalEmptyState.classList.add('empty-state');
+		feed.append(postsArea);
+		let personalPosts = readPosts();
+
+		function escapeText(value) {
+			return String(value).replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+		}
+		function readPosts() {
+			try { const value = JSON.parse(localStorage.getItem(POSTS_KEY) || '[]'); return Array.isArray(value) ? value : []; }
+			catch { return []; }
+		}
+		function savePosts() {
+			try { localStorage.setItem(POSTS_KEY, JSON.stringify(personalPosts)); return true; }
+			catch { showToast('مساحة التخزين ممتلئة. احذف بعض المنشورات أو اختر ملفاً أصغر.'); return false; }
+		}
+		function renderPost(post) {
+			const card = document.createElement('article');
+			card.className = 'post-card personal-post';
+			card.dataset.postId = post.id;
+			card.dataset.type = post.mediaType === 'video' ? 'video' : 'photo';
+			const comments = Array.isArray(post.comments) ? post.comments : [];
+			const media = post.media ? (post.mediaType === 'video'
+				? `<div class="post-media personal-media"><video src="${post.media}" controls playsinline></video></div>`
+				: `<div class="post-media personal-media"><img src="${post.media}" alt="مرفق المنشور"></div>`)
+				: '';
+			const commentMarkup = comments.map((comment) => `<div class="comment-item"><span class="comment-avatar">${escapeText(ownerName.slice(0, 1))}</span><p><strong>${escapeText(ownerName)}</strong> ${escapeText(comment.text)}<small>${escapeText(comment.date || 'الآن')}</small></p><button class="delete-comment" data-comment-id="${escapeText(comment.id)}" aria-label="حذف التعليق">×</button></div>`).join('');
+			card.innerHTML = `<div class="post-header"><span class="post-avatar owner-avatar">${escapeText(ownerName.slice(0, 1))}</span><div class="post-user"><strong>${escapeText(ownerName)}</strong><span>منشور شخصي · ${escapeText(post.date)}</span></div><button class="more-button" aria-label="حذف المنشور">حذف</button></div><p class="post-caption">${escapeText(post.text).replace(/\n/g, '<br>')}</p>${media}<div class="post-actions"><div class="action-group"><button class="action-button like-button${post.liked ? ' liked' : ''}" aria-label="إعجاب"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg></button><span class="like-count">${post.liked ? 'أعجبك' : 'إعجاب'}</span><button class="action-button comment-button" aria-label="عرض التعليقات"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></button><span class="comment-count">${comments.length}</span></div><button class="action-button bookmark-button${post.saved ? ' saved' : ''}" aria-label="حفظ المنشور"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button></div><section class="comments-panel" hidden><div class="comments-list">${commentMarkup || '<p class="no-comments">لا توجد تعليقات بعد. اكتب أول تعليقك.</p>'}</div><form class="comment-form"><input name="comment" maxlength="400" placeholder="اكتب تعليقاً لنفسك..." aria-label="اكتب تعليقاً"><button type="submit">إضافة</button></form></section>`;
+			return card;
+		}
+		function renderAllPosts() {
+			postsArea.replaceChildren(...personalPosts.map(renderPost));
+			originalEmptyState.hidden = personalPosts.length > 0;
+		}
+		function refreshPost(postId) {
+			const oldCard = postsArea.querySelector(`[data-post-id="${CSS.escape(postId)}"]`);
+			const post = personalPosts.find((item) => item.id === postId);
+			if (oldCard && post) oldCard.replaceWith(renderPost(post));
+		}
+		function changeOwnerName() {
+			const next = prompt('ما الاسم الذي تريد عرضه في مساحتك؟', localStorage.getItem(OWNER_KEY) || 'صاحب الموقع');
+			if (next === null || !next.trim()) return;
+			localStorage.setItem(OWNER_KEY, next.trim().slice(0, 40));
+			showToast('تم تحديث الاسم. حدّث الصفحة لتطبيقه في كل مكان.');
+		}
+		function publishPersonalPost(event) {
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			const text = document.getElementById('post-input').value.trim();
+			const file = document.getElementById('file-input').files[0];
+			if (!text && !file) { showToast('اكتب شيئاً أو اختر صورة أو فيديو أولاً.'); return; }
+			if (file && file.size > 850000) { showToast('اختر ملفاً أصغر من 850 كيلوبايت حتى يمكن حفظه في هذا المتصفح.'); return; }
+			const createPost = (media = '', mediaType = '') => {
+				const post = { id: `post-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, text, media, mediaType, date: new Date().toLocaleString('ar', { dateStyle: 'medium', timeStyle: 'short' }), comments: [], liked: false, saved: false };
+				personalPosts.unshift(post);
+				if (!savePosts()) { personalPosts.shift(); return; }
+				renderAllPosts(); closeModal();
+				document.getElementById('post-input').value = '';
+				document.getElementById('file-input').value = '';
+				showToast('تم حفظ منشورك على هذا الجهاز ✦');
+			};
+			if (!file) { createPost(); return; }
+			const reader = new FileReader();
+			reader.onload = () => createPost(reader.result, file.type.startsWith('video/') ? 'video' : 'image');
+			reader.onerror = () => showToast('تعذر قراءة الملف. جرّب ملفاً آخر.');
+			reader.readAsDataURL(file);
+		}
+		document.addEventListener('click', (event) => {
+			if (event.target.closest('.publish-button')) { publishPersonalPost(event); return; }
+			if (event.target.closest('.private-notice button')) { changeOwnerName(); return; }
+			if (event.target.closest('.profile-mini, .avatar-button, .mobile-nav a:last-child')) { event.preventDefault(); changeOwnerName(); return; }
+			const navigationLink = event.target.closest('.nav-link, .mobile-nav a');
+			if (navigationLink) {
+				event.preventDefault();
+				const destination = navigationLink.getAttribute('href');
+				if (destination === '#home') { document.querySelector('.feed-tab[data-filter="all"]').click(); document.getElementById('search-input').value = ''; document.getElementById('search-input').dispatchEvent(new Event('input')); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+				else if (destination === '#videos') document.querySelector('.feed-tab[data-filter="video"]').click();
+				else if (destination === '#discover') { document.getElementById('search-input').focus(); showToast('اكتب كلمة للبحث في منشوراتك.'); }
+				else if (destination === '#saved') { let savedCount = 0; postsArea.querySelectorAll('.personal-post').forEach((card) => { const post = personalPosts.find((item) => item.id === card.dataset.postId); card.hidden = !post?.saved; if (post?.saved) savedCount++; }); originalEmptyState.hidden = savedCount > 0; if (!savedCount) { originalEmptyState.hidden = false; originalEmptyState.textContent = 'لا توجد منشورات محفوظة بعد.'; } }
+				else showToast('هذه المساحة شخصية ولا تتضمن رسائل مع مستخدمين آخرين.');
+				return;
+			}
+			const card = event.target.closest('.personal-post');
+			if (!card) return;
+			const post = personalPosts.find((item) => item.id === card.dataset.postId);
+			if (!post) return;
+			const commentButton = event.target.closest('.delete-comment');
+			if (commentButton) { post.comments = post.comments.filter((comment) => comment.id !== commentButton.dataset.commentId); savePosts(); refreshPost(post.id); postsArea.querySelector(`[data-post-id="${CSS.escape(post.id)}"] .comments-panel`).hidden = false; showToast('تم حذف التعليق.'); return; }
+			if (event.target.closest('.comment-button')) { const panel = card.querySelector('.comments-panel'); panel.hidden = !panel.hidden; if (!panel.hidden) panel.querySelector('input').focus(); event.stopImmediatePropagation(); return; }
+			if (event.target.closest('.like-button')) { post.liked = !post.liked; savePosts(); refreshPost(post.id); event.stopImmediatePropagation(); return; }
+			if (event.target.closest('.bookmark-button')) { post.saved = !post.saved; savePosts(); refreshPost(post.id); showToast(post.saved ? 'حُفظ المنشور.' : 'أُزيل من المحفوظات.'); event.stopImmediatePropagation(); return; }
+			if (event.target.closest('.more-button')) { if (confirm('هل تريد حذف هذا المنشور وتعليقاته؟')) { personalPosts = personalPosts.filter((item) => item.id !== post.id); savePosts(); renderAllPosts(); showToast('تم حذف المنشور.'); } event.stopImmediatePropagation(); }
+		}, true);
+		document.addEventListener('submit', (event) => {
+			if (event.target.matches('.comment-form')) {
+				event.preventDefault();
+				const card = event.target.closest('.personal-post');
+				const post = personalPosts.find((item) => item.id === card.dataset.postId);
+				const input = event.target.elements.comment;
+				const text = input.value.trim();
+				if (!text || !post) return;
+				post.comments.push({ id: `comment-${Date.now()}`, text, date: new Date().toLocaleTimeString('ar', { hour: '2-digit', minute: '2-digit' }) });
+				if (savePosts()) { refreshPost(post.id); postsArea.querySelector(`[data-post-id="${CSS.escape(post.id)}"] .comments-panel`).hidden = false; showToast('تم حفظ تعليقك.'); }
+			}
+		}, true);
+		notice.querySelector('button').addEventListener('click', changeOwnerName);
+		document.getElementById('search-input').placeholder = 'ابحث في منشوراتك...';
+		document.getElementById('search-input').addEventListener('input', (event) => {
+			const query = event.target.value.trim().toLowerCase();
+			let visible = 0;
+			postsArea.querySelectorAll('.personal-post').forEach((card) => { const shown = card.textContent.toLowerCase().includes(query); card.hidden = !shown; if (shown) visible++; });
+			originalEmptyState.hidden = personalPosts.length > 0 && (visible > 0 || !query);
+			if (query && !visible) { originalEmptyState.hidden = false; originalEmptyState.textContent = 'لا توجد منشورات تطابق بحثك.'; }
+		});
+		document.querySelectorAll('.feed-tab').forEach((tab) => tab.addEventListener('click', () => {
+			const filter = tab.dataset.filter;
+			let visible = 0;
+			postsArea.querySelectorAll('.personal-post').forEach((card) => { const shown = filter === 'all' || (filter === 'video' ? card.dataset.type === 'video' : card.dataset.type !== 'video'); card.hidden = !shown; if (shown) visible++; });
+			originalEmptyState.hidden = visible > 0;
+			if (!visible && personalPosts.length) { originalEmptyState.hidden = false; originalEmptyState.textContent = 'لا توجد منشورات من هذا النوع حتى الآن.'; }
+		}));
+		document.querySelectorAll('.nav-link').forEach((link) => link.addEventListener('click', (event) => {
+			if (link.getAttribute('href') !== '#home') { event.preventDefault(); showToast('هذه مساحة شخصية؛ يمكنك كتابة منشوراتك وتعليقاتك هنا.'); }
+		}));
+		document.querySelectorAll('.story').forEach((story) => story.addEventListener('click', () => document.getElementById('open-create').click()));
+		renderAllPosts();
+	</script>
+</body>
+</html>
