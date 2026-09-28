@@ -18,6 +18,8 @@
 		.mobile-nav .owner-picture{width:27px;height:27px;border-width:1.5px;font-size:10px}
 		.private-notice{margin-bottom:8px}
 		.login-trigger{min-height:36px;padding:0 13px;border:1px solid #59436c;border-radius:10px;background:#241d2b;color:#e6c9ff;font-size:11px;font-weight:600;white-space:nowrap;cursor:pointer}
+		.language-select{min-height:36px;max-width:110px;padding:0 8px;border:1px solid #292a31;border-radius:9px;background:#17181d;color:#f5f3f7;font-size:10px}
+		.logout-trigger{min-height:36px;padding:0 11px;border:1px solid #3d3d46;border-radius:10px;background:#202126;color:#dedbe5;font-size:11px;cursor:pointer}
 		.login-backdrop{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:18px;background:#08090dcc;backdrop-filter:blur(8px)}
 		.login-backdrop[hidden]{display:none}
 		.login-dialog{position:relative;width:min(100%,420px);padding:30px;border:1px solid #302d38;border-radius:16px;background:#17181d;box-shadow:0 24px 80px #0008}
@@ -44,14 +46,14 @@
 				<span>موجة<span class="brand-dot">.</span></span>
 			</a>
 			<nav class="main-nav" aria-label="التنقل الرئيسي">
-				<a class="nav-link active" href="#home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span>الرئيسية</a>
-				<a class="nav-link" href="#discover"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>اكتشف</a>
-				<a class="nav-link" href="#videos"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></span>الفيديوهات القصيرة</a>
-				<a class="nav-link" href="#messages"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span>الرسائل <span class="nav-badge">3</span></a>
-				<a class="nav-link" href="#saved"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></span>المحفوظات</a>
+				<a class="nav-link active" href="#home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></span><span data-i18n="home">الرئيسية</span></a>
+				<a class="nav-link" href="#discover"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><span data-i18n="discover">اكتشف</span></a>
+				<a class="nav-link" href="#videos"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></span><span data-i18n="videos">الفيديوهات القصيرة</span></a>
+				<a class="nav-link" href="#messages"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></span><span data-i18n="messages">الرسائل</span> <span class="nav-badge">3</span></a>
+				<a class="nav-link" href="#saved"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></span><span data-i18n="saved">المحفوظات</span></a>
 			</nav>
 			<div class="sidebar-divider"></div>
-			<button class="create-button" id="open-create"><span>＋</span> إنشاء منشور</button>
+			<button class="create-button" id="open-create"><span>＋</span> <span data-i18n="createPost">إنشاء منشور</span></button>
 			<a class="profile-mini" href="#profile"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="الصورة الشخصية لسارة"><span><strong>سارة العتيبي</strong><small>@sara.creates</small></span><span class="online-dot"></span></a>
 			<div class="sidebar-bottom"><span class="live-indicator"></span> أفكارك تستحق أن تُرى</div>
 		</aside>
@@ -59,14 +61,14 @@
 		<main class="main-content" id="home">
 			<header class="topbar">
 				<div class="mobile-brand"><span class="brand-mark"><svg viewBox="0 0 40 40"><path d="M5 23c5-11 9 11 15 0s10 11 15 0"/><path d="M5 14c5-11 9 11 15 0s10 11 15 0"/></svg></span>موجة<span class="brand-dot">.</span></div>
-				<label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="ابحث عن أشخاص، مواضيع..." aria-label="ابحث"></label>
-				<div class="topbar-actions"><button class="login-trigger" id="open-login" type="button">تسجيل الدخول</button><button class="icon-button notification-button" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="avatar-button" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></button></div>
+				<label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="ابحث عن أشخاص، مواضيع..." aria-label="ابحث" data-i18n-placeholder="search"></label>
+				<div class="topbar-actions"><select class="language-select" id="language-select" aria-label="اللغة" title="اللغة"><option value="ar">العربية</option><option value="en">English</option><option value="zh">中文</option><option value="hi">हिन्दी</option><option value="es">Español</option><option value="fr">Français</option><option value="bn">বাংলা</option><option value="pt">Português</option><option value="ru">Русский</option><option value="ur">اردو</option></select><button class="login-trigger" id="open-login" type="button" data-i18n="login">تسجيل الدخول</button><button class="logout-trigger" id="logout-button" type="button" hidden data-i18n="logout">تسجيل الخروج</button><button class="icon-button notification-button" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="avatar-button" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></button></div>
 			</header>
 			<div class="content-grid">
 				<section class="feed-column" aria-label="آخر المنشورات">
-					<div class="welcome-row"><div><p class="eyebrow">الاثنين، ٢٨ سبتمبر</p><h1>مرحباً سارة <span>✦</span></h1><p class="welcome-subtitle">هذه موجتك، شاركي العالم ما يلهمك.</p></div><button class="round-add" id="open-create-mobile" aria-label="أضيفي منشوراً">＋</button></div>
-					<section class="stories-section" aria-label="القصص"><div class="section-heading"><h2>القصص</h2><button class="text-button" id="view-stories">مشاهدة الكل <span>←</span></button></div><div class="stories-row">
-						<button class="story own-story" data-story="قصتك"><span class="story-ring add-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="قصتك"><i>＋</i></span><span>قصتك</span></button>
+					<div class="welcome-row"><div><p class="eyebrow">الاثنين، ٢٨ سبتمبر</p><h1 id="welcome-title">مرحباً سارة <span>✦</span></h1><p class="welcome-subtitle" data-i18n="welcomeSubtitle">هذه موجتك، شاركي العالم ما يلهمك.</p></div><button class="round-add" id="open-create-mobile" aria-label="أضيفي منشوراً">＋</button></div>
+					<section class="stories-section" aria-label="القصص"><div class="section-heading"><h2 data-i18n="stories">القصص</h2><button class="text-button" id="view-stories"><span data-i18n="viewAll">مشاهدة الكل</span> <span>←</span></button></div><div class="stories-row">
+						<button class="story own-story" data-story="قصتك"><span class="story-ring add-ring"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="قصتك"><i>＋</i></span><span data-i18n="yourStory">قصتك</span></button>
 						<button class="story" data-story="ليان"><span class="story-ring"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80" alt=""><i class="story-live"></i></span><span>ليان</span></button>
 						<button class="story" data-story="عمر"><span class="story-ring"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt=""></span><span>عمر</span></button>
 						<button class="story" data-story="نور"><span class="story-ring"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt=""></span><span>نور</span></button>
@@ -90,7 +92,7 @@
 						<div class="post-media video-media"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85" alt="قهوة محضرة في مقهى بإضاءة دافئة"><button class="play-button" aria-label="تشغيل الفيديو"><svg viewBox="0 0 24 24"><path d="m8 5 12 7-12 7z"/></svg></button><span class="video-label">▶ فيديو قصير · ٠:٣٠</span></div>
 						<div class="post-actions"><div class="action-group"><button class="action-button like-button" aria-label="إعجاب"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8z"/></svg></button><span class="like-count">٨٦٢</span><button class="action-button comment-button" aria-label="التعليقات"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 4a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></button><span>٤٣</span><button class="action-button share-button" aria-label="مشاركة"><svg viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></button></div><button class="action-button bookmark-button" aria-label="حفظ المنشور"><svg viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></svg></button></div>
 					</article>
-					<p class="empty-state" id="empty-state" hidden>ما لقينا منشورات تطابق بحثك. جرّبي كلمة ثانية ✨</p>
+					<p class="empty-state" id="empty-state" hidden data-i18n="emptyPosts">ما لقينا منشورات تطابق بحثك. جرّبي كلمة ثانية ✨</p>
 				</section>
 
 				<aside class="right-column">
@@ -117,16 +119,16 @@
 		<section class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="login-title">
 			<button class="login-close" id="close-login" type="button" aria-label="إغلاق">×</button>
 			<p class="login-brand">موجة ✦</p>
-			<h2 id="login-title">مرحباً بعودتك</h2>
-			<p class="login-description" id="login-description">سجّل الدخول لتتابع مساحتك ومنشوراتك.</p>
+			<h2 id="login-title" data-i18n="loginTitle">مرحباً بعودتك</h2>
+			<p class="login-description" id="login-description" data-i18n="loginDescription">سجّل الدخول لتتابع مساحتك ومنشوراتك.</p>
 			<form class="login-form" id="login-form">
-				<label id="login-name-field" hidden>الاسم<input name="name" type="text" autocomplete="name" maxlength="40"></label>
-				<label>البريد الإلكتروني<input name="email" type="email" autocomplete="email" placeholder="name@example.com" required></label>
-				<label>كلمة المرور<input name="password" type="password" autocomplete="current-password" minlength="8" placeholder="8 أحرف على الأقل" required></label>
-				<button class="login-submit" id="login-submit" type="submit">تسجيل الدخول</button>
+						<label id="login-name-field" hidden><span data-i18n="name">الاسم</span><input name="name" type="text" autocomplete="name" maxlength="40"></label>
+						<label><span data-i18n="email">البريد الإلكتروني</span><input name="email" type="email" autocomplete="email" placeholder="name@example.com" required></label>
+						<label><span data-i18n="password">كلمة المرور</span><input name="password" type="password" autocomplete="current-password" minlength="8" placeholder="8 أحرف على الأقل" required></label>
+				<button class="login-submit" id="login-submit" type="submit" data-i18n="loginSubmit">تسجيل الدخول</button>
 			</form>
-			<p class="login-switch"><span id="login-switch-label">ليس لديك حساب؟</span> <button id="login-switch" type="button">إنشاء حساب</button></p>
-			<p class="login-note">واجهة تجريبية فقط؛ تسجيل الحسابات والتحقق من كلمات المرور يحتاجان إلى خادم آمن.</p>
+			<p class="login-switch"><span id="login-switch-label" data-i18n="signupPrompt">ليس لديك حساب؟</span> <button id="login-switch" type="button" data-i18n="signupSwitch">إنشاء حساب</button></p>
+			<p class="login-note" data-i18n="loginNote">حسابات تجريبية على هذا الجهاز فقط؛ لا تستخدم كلمة مرور حقيقية.</p>
 		</section>
 	</div>
 	<script>
@@ -135,34 +137,108 @@
 		function showToast(message) { toast.textContent = message; toast.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('visible'), 2400); }
 		const loginModal = document.getElementById('login-modal');
 		const loginForm = document.getElementById('login-form');
+		const loginButton = document.getElementById('open-login');
+		const logoutButton = document.getElementById('logout-button');
+		const languageSelect = document.getElementById('language-select');
+		const accountsKey = 'mawja-local-accounts-v1';
+		const sessionKey = 'mawja-local-session-v1';
+		const localeKey = 'mawja-language';
+		let currentUser = null;
+		const locales = {
+			ar: { home:'الرئيسية',discover:'اكتشف',videos:'الفيديوهات القصيرة',messages:'الرسائل',saved:'المحفوظات',createPost:'إنشاء منشور',search:'ابحث عن أشخاص، مواضيع...',login:'تسجيل الدخول',logout:'تسجيل الخروج',welcomeSubtitle:'هذه مساحتك الخاصة. اكتب أفكارك واحتفظ بتعليقاتك هنا.',stories:'القصص',viewAll:'مشاهدة الكل',yourStory:'قصتك',emptyPosts:'لم تكتب أي منشور بعد. ابدأ بكتابة أول فكرة أو ذكرى لك ✨',name:'الاسم',email:'البريد الإلكتروني',password:'كلمة المرور',loginTitle:'مرحباً بعودتك',loginDescription:'سجّل الدخول لتتابع مساحتك ومنشوراتك.',loginSubmit:'تسجيل الدخول',signupPrompt:'ليس لديك حساب؟',signupSwitch:'إنشاء حساب',loginNote:'حسابات تجريبية على هذا الجهاز فقط؛ لا تستخدم كلمة مرور حقيقية.',privateSpace:'مساحتك الخاصة',editName:'تعديل الاسم',language:'اللغة',searchPosts:'ابحث في منشوراتك...',passwordPlaceholder:'8 أحرف على الأقل',signupDescription:'أنشئ حسابك المحلي وابدأ باستخدام موجة.',signupTitle:'أنشئ حسابك',signupSubmit:'إنشاء الحساب',loginPrompt:'لديك حساب بالفعل؟',loginSwitch:'تسجيل الدخول',welcome:'مرحباً {name}' },
+			en: { home:'Home',discover:'Explore',videos:'Short videos',messages:'Messages',saved:'Saved',createPost:'Create post',search:'Search people and topics...',login:'Log in',logout:'Log out',welcomeSubtitle:'Your private space. Write ideas and keep your notes here.',stories:'Stories',viewAll:'View all',yourStory:'Your story',emptyPosts:'No posts yet. Share your first thought or memory ✨',name:'Name',email:'Email address',password:'Password',loginTitle:'Welcome back',loginDescription:'Log in to return to your space and posts.',loginSubmit:'Log in',signupPrompt:'New here?',signupSwitch:'Create account',loginNote:'Demo accounts stay on this device. Do not use a real password.',privateSpace:'Your private space',editName:'Edit name',language:'Language',searchPosts:'Search your posts...',passwordPlaceholder:'At least 8 characters',signupDescription:'Create a local account to start using Mawja.',signupTitle:'Create your account',signupSubmit:'Create account',loginPrompt:'Already have an account?',loginSwitch:'Log in',welcome:'Welcome, {name}' },
+			zh: { home:'首页',discover:'探索',videos:'短视频',messages:'消息',saved:'收藏',createPost:'创建帖子',search:'搜索用户和话题...',login:'登录',logout:'退出登录',welcomeSubtitle:'你的个人空间。在这里记录想法和笔记。',stories:'快拍',viewAll:'查看全部',yourStory:'你的快拍',emptyPosts:'还没有帖子，分享你的第一个想法吧 ✨',name:'姓名',email:'电子邮件',password:'密码',loginTitle:'欢迎回来',loginDescription:'登录以查看你的空间和帖子。',loginSubmit:'登录',signupPrompt:'还没有账号？',signupSwitch:'创建账号',loginNote:'演示账号仅保存在此设备，请勿使用真实密码。',privateSpace:'个人空间',editName:'编辑姓名',language:'语言',searchPosts:'搜索你的帖子...',passwordPlaceholder:'至少8个字符',signupDescription:'创建本地账号以开始使用 Mawja。',signupTitle:'创建账号',signupSubmit:'创建账号',loginPrompt:'已有账号？',loginSwitch:'登录',welcome:'欢迎，{name}' },
+			hi: { home:'होम',discover:'खोजें',videos:'छोटे वीडियो',messages:'संदेश',saved:'सहेजे गए',createPost:'पोस्ट बनाएं',search:'लोग और विषय खोजें...',login:'लॉग इन',logout:'लॉग आउट',welcomeSubtitle:'आपकी निजी जगह। अपने विचार और नोट्स यहां लिखें।',stories:'स्टोरीज़',viewAll:'सभी देखें',yourStory:'आपकी स्टोरी',emptyPosts:'अभी कोई पोस्ट नहीं। अपना पहला विचार साझा करें ✨',name:'नाम',email:'ईमेल पता',password:'पासवर्ड',loginTitle:'वापस स्वागत है',loginDescription:'अपनी जगह और पोस्ट देखने के लिए लॉग इन करें।',loginSubmit:'लॉग इन',signupPrompt:'नया खाता चाहिए?',signupSwitch:'खाता बनाएं',loginNote:'डेमो खाते केवल इस डिवाइस पर हैं। असली पासवर्ड न इस्तेमाल करें।',privateSpace:'आपकी निजी जगह',editName:'नाम बदलें',language:'भाषा',searchPosts:'अपनी पोस्ट खोजें...',passwordPlaceholder:'कम से कम 8 अक्षर',signupDescription:'Mawja शुरू करने के लिए स्थानीय खाता बनाएं।',signupTitle:'अपना खाता बनाएं',signupSubmit:'खाता बनाएं',loginPrompt:'पहले से खाता है?',loginSwitch:'लॉग इन',welcome:'नमस्ते, {name}' },
+			es: { home:'Inicio',discover:'Explorar',videos:'Vídeos cortos',messages:'Mensajes',saved:'Guardados',createPost:'Crear publicación',search:'Buscar personas y temas...',login:'Iniciar sesión',logout:'Cerrar sesión',welcomeSubtitle:'Tu espacio privado. Escribe ideas y guarda tus notas aquí.',stories:'Historias',viewAll:'Ver todo',yourStory:'Tu historia',emptyPosts:'Aún no hay publicaciones. Comparte tu primera idea ✨',name:'Nombre',email:'Correo electrónico',password:'Contraseña',loginTitle:'Te damos la bienvenida',loginDescription:'Inicia sesión para volver a tu espacio y publicaciones.',loginSubmit:'Iniciar sesión',signupPrompt:'¿No tienes cuenta?',signupSwitch:'Crear cuenta',loginNote:'Las cuentas de prueba solo están en este dispositivo. No uses una contraseña real.',privateSpace:'Tu espacio privado',editName:'Editar nombre',language:'Idioma',searchPosts:'Buscar en tus publicaciones...',passwordPlaceholder:'Al menos 8 caracteres',signupDescription:'Crea una cuenta local para empezar a usar Mawja.',signupTitle:'Crea tu cuenta',signupSubmit:'Crear cuenta',loginPrompt:'¿Ya tienes cuenta?',loginSwitch:'Iniciar sesión',welcome:'Hola, {name}' },
+			fr: { home:'Accueil',discover:'Explorer',videos:'Vidéos courtes',messages:'Messages',saved:'Enregistrés',createPost:'Créer une publication',search:'Rechercher des personnes et sujets...',login:'Connexion',logout:'Déconnexion',welcomeSubtitle:'Votre espace privé. Notez vos idées et gardez vos écrits ici.',stories:'Stories',viewAll:'Tout voir',yourStory:'Votre story',emptyPosts:'Aucune publication. Partagez votre première idée ✨',name:'Nom',email:'Adresse e-mail',password:'Mot de passe',loginTitle:'Ravi de vous revoir',loginDescription:'Connectez-vous pour retrouver votre espace et vos publications.',loginSubmit:'Connexion',signupPrompt:'Pas encore de compte ?',signupSwitch:'Créer un compte',loginNote:'Les comptes démo restent sur cet appareil. N’utilisez pas de vrai mot de passe.',privateSpace:'Votre espace privé',editName:'Modifier le nom',language:'Langue',searchPosts:'Rechercher dans vos publications...',passwordPlaceholder:'8 caractères minimum',signupDescription:'Créez un compte local pour commencer avec Mawja.',signupTitle:'Créer votre compte',signupSubmit:'Créer le compte',loginPrompt:'Vous avez déjà un compte ?',loginSwitch:'Connexion',welcome:'Bonjour, {name}' },
+			bn: { home:'হোম',discover:'খুঁজুন',videos:'ছোট ভিডিও',messages:'বার্তা',saved:'সংরক্ষিত',createPost:'পোস্ট তৈরি',search:'মানুষ ও বিষয় খুঁজুন...',login:'লগ ইন',logout:'লগ আউট',welcomeSubtitle:'আপনার ব্যক্তিগত জায়গা। এখানে ভাবনা ও নোট লিখুন।',stories:'স্টোরি',viewAll:'সব দেখুন',yourStory:'আপনার স্টোরি',emptyPosts:'এখনও কোনো পোস্ট নেই। প্রথম ভাবনাটি শেয়ার করুন ✨',name:'নাম',email:'ইমেইল',password:'পাসওয়ার্ড',loginTitle:'আবার স্বাগতম',loginDescription:'আপনার জায়গা ও পোস্ট দেখতে লগ ইন করুন।',loginSubmit:'লগ ইন',signupPrompt:'নতুন এখানে?',signupSwitch:'অ্যাকাউন্ট তৈরি',loginNote:'ডেমো অ্যাকাউন্ট শুধু এই ডিভাইসে থাকে। আসল পাসওয়ার্ড ব্যবহার করবেন না।',privateSpace:'আপনার ব্যক্তিগত জায়গা',editName:'নাম সম্পাদনা',language:'ভাষা',searchPosts:'আপনার পোস্ট খুঁজুন...',passwordPlaceholder:'কমপক্ষে ৮ অক্ষর',signupDescription:'Mawja ব্যবহার শুরু করতে স্থানীয় অ্যাকাউন্ট তৈরি করুন।',signupTitle:'অ্যাকাউন্ট তৈরি করুন',signupSubmit:'অ্যাকাউন্ট তৈরি',loginPrompt:'আগে থেকেই অ্যাকাউন্ট আছে?',loginSwitch:'লগ ইন',welcome:'স্বাগতম, {name}' },
+			pt: { home:'Início',discover:'Explorar',videos:'Vídeos curtos',messages:'Mensagens',saved:'Salvos',createPost:'Criar publicação',search:'Buscar pessoas e assuntos...',login:'Entrar',logout:'Sair',welcomeSubtitle:'Seu espaço privado. Escreva ideias e guarde suas notas aqui.',stories:'Stories',viewAll:'Ver tudo',yourStory:'Seu story',emptyPosts:'Ainda não há publicações. Compartilhe sua primeira ideia ✨',name:'Nome',email:'E-mail',password:'Senha',loginTitle:'Boas-vindas de volta',loginDescription:'Entre para acessar seu espaço e suas publicações.',loginSubmit:'Entrar',signupPrompt:'Não tem uma conta?',signupSwitch:'Criar conta',loginNote:'Contas de demonstração ficam neste dispositivo. Não use uma senha real.',privateSpace:'Seu espaço privado',editName:'Editar nome',language:'Idioma',searchPosts:'Buscar nas suas publicações...',passwordPlaceholder:'Pelo menos 8 caracteres',signupDescription:'Crie uma conta local para começar a usar Mawja.',signupTitle:'Crie sua conta',signupSubmit:'Criar conta',loginPrompt:'Já tem uma conta?',loginSwitch:'Entrar',welcome:'Olá, {name}' },
+			ru: { home:'Главная',discover:'Обзор',videos:'Короткие видео',messages:'Сообщения',saved:'Сохранённое',createPost:'Создать публикацию',search:'Поиск людей и тем...',login:'Войти',logout:'Выйти',welcomeSubtitle:'Ваше личное пространство для идей и заметок.',stories:'Истории',viewAll:'Смотреть все',yourStory:'Ваша история',emptyPosts:'Публикаций пока нет. Поделитесь первой идеей ✨',name:'Имя',email:'Электронная почта',password:'Пароль',loginTitle:'С возвращением',loginDescription:'Войдите, чтобы открыть своё пространство и публикации.',loginSubmit:'Войти',signupPrompt:'Нет аккаунта?',signupSwitch:'Создать аккаунт',loginNote:'Демо-аккаунты хранятся только на этом устройстве. Не используйте настоящий пароль.',privateSpace:'Личное пространство',editName:'Изменить имя',language:'Язык',searchPosts:'Поиск публикаций...',passwordPlaceholder:'Не менее 8 символов',signupDescription:'Создайте локальный аккаунт, чтобы начать пользоваться Mawja.',signupTitle:'Создать аккаунт',signupSubmit:'Создать аккаунт',loginPrompt:'Уже есть аккаунт?',loginSwitch:'Войти',welcome:'Здравствуйте, {name}' },
+			ur: { home:'صفحۂ اول',discover:'دریافت کریں',videos:'مختصر ویڈیوز',messages:'پیغامات',saved:'محفوظ شدہ',createPost:'پوسٹ بنائیں',search:'لوگ اور موضوعات تلاش کریں...',login:'لاگ اِن',logout:'لاگ آؤٹ',welcomeSubtitle:'آپ کی نجی جگہ۔ اپنے خیالات اور نوٹس یہاں لکھیں۔',stories:'کہانیاں',viewAll:'سب دیکھیں',yourStory:'آپ کی کہانی',emptyPosts:'ابھی کوئی پوسٹ نہیں۔ اپنا پہلا خیال شیئر کریں ✨',name:'نام',email:'ای میل',password:'پاس ورڈ',loginTitle:'واپس خوش آمدید',loginDescription:'اپنی جگہ اور پوسٹس دیکھنے کے لیے لاگ اِن کریں۔',loginSubmit:'لاگ اِن',signupPrompt:'نیا اکاؤنٹ؟',signupSwitch:'اکاؤنٹ بنائیں',loginNote:'ڈیمو اکاؤنٹس صرف اسی ڈیوائس پر ہیں۔ اصل پاس ورڈ استعمال نہ کریں۔',privateSpace:'آپ کی نجی جگہ',editName:'نام تبدیل کریں',language:'زبان',searchPosts:'اپنی پوسٹس تلاش کریں...',passwordPlaceholder:'کم از کم 8 حروف',signupDescription:'Mawja استعمال کرنے کے لیے مقامی اکاؤنٹ بنائیں۔',signupTitle:'اپنا اکاؤنٹ بنائیں',signupSubmit:'اکاؤنٹ بنائیں',loginPrompt:'پہلے سے اکاؤنٹ ہے؟',loginSwitch:'لاگ اِن',welcome:'خوش آمدید، {name}' }
+		};
+		let currentLocale = localStorage.getItem(localeKey) || 'ar';
+		if (!locales[currentLocale]) currentLocale = 'ar';
+		function applyLocale() {
+			const strings = locales[currentLocale] || locales.ar;
+			document.documentElement.lang = currentLocale;
+			document.documentElement.dir = ['ar', 'ur'].includes(currentLocale) ? 'rtl' : 'ltr';
+			document.querySelectorAll('[data-i18n]').forEach((element) => { const value = strings[element.dataset.i18n]; if (value) element.textContent = value; });
+			document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => { const value = strings[element.dataset.i18nPlaceholder]; if (value) element.placeholder = value; });
+			languageSelect.setAttribute('aria-label', strings.language);
+			loginForm.elements.password.placeholder = strings.passwordPlaceholder;
+			document.getElementById('search-input').placeholder = strings.searchPosts;
+			document.querySelector('.profile-mini small').textContent = strings.privateSpace;
+			document.getElementById('login-title').textContent = isSignupMode ? strings.signupTitle : strings.loginTitle;
+			document.getElementById('login-description').textContent = isSignupMode ? strings.signupDescription : strings.loginDescription;
+			document.getElementById('login-submit').textContent = isSignupMode ? strings.signupSubmit : strings.loginSubmit;
+			document.getElementById('login-switch-label').textContent = isSignupMode ? strings.loginPrompt : strings.signupPrompt;
+			document.getElementById('login-switch').textContent = isSignupMode ? strings.loginSwitch : strings.signupSwitch;
+			const greeting = document.getElementById('welcome-title');
+			if (greeting) greeting.innerHTML = `${strings.welcome.replace('{name}', escapeText(ownerName))} <span>✦</span>`;
+		}
+		languageSelect.value = currentLocale;
+		languageSelect.addEventListener('change', () => { currentLocale = languageSelect.value; localStorage.setItem(localeKey, currentLocale); applyLocale(); });
 		let isSignupMode = false;
-		function openLogin() { loginModal.hidden = false; loginForm.elements.email.focus(); }
+		function openLogin() { loginModal.hidden = false; applyLocale(); loginForm.elements.email.focus(); }
 		function closeLogin() { loginModal.hidden = true; }
-		document.getElementById('open-login').addEventListener('click', openLogin);
+		loginButton.addEventListener('click', openLogin);
 		document.getElementById('close-login').addEventListener('click', closeLogin);
 		loginModal.addEventListener('click', (event) => { if (event.target === loginModal) closeLogin(); });
 		document.getElementById('login-switch').addEventListener('click', () => {
 			isSignupMode = !isSignupMode;
-			document.getElementById('login-title').textContent = isSignupMode ? 'أنشئ حسابك' : 'مرحباً بعودتك';
-			document.getElementById('login-description').textContent = isSignupMode ? 'انضم إلى موجة وابدأ مشاركة أفكارك.' : 'سجّل الدخول لتتابع مساحتك ومنشوراتك.';
 			document.getElementById('login-name-field').hidden = !isSignupMode;
 			loginForm.elements.name.required = isSignupMode;
 			loginForm.elements.password.autocomplete = isSignupMode ? 'new-password' : 'current-password';
-			document.getElementById('login-submit').textContent = isSignupMode ? 'إنشاء الحساب' : 'تسجيل الدخول';
-			document.getElementById('login-switch-label').textContent = isSignupMode ? 'لديك حساب بالفعل؟' : 'ليس لديك حساب؟';
-			document.getElementById('login-switch').textContent = isSignupMode ? 'تسجيل الدخول' : 'إنشاء حساب';
+			applyLocale();
 		});
-		loginForm.addEventListener('submit', (event) => {
+		async function passwordDigest(password, salt) {
+			const bytes = new TextEncoder().encode(`${salt}:${password}`);
+			const digest = await crypto.subtle.digest('SHA-256', bytes);
+			return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+		}
+		function readAccounts() { try { const value = JSON.parse(localStorage.getItem(accountsKey) || '{}'); return value && typeof value === 'object' ? value : {}; } catch { return {}; } }
+		function setLoggedIn(user) {
+			currentUser = user;
+			loginButton.hidden = Boolean(user);
+			logoutButton.hidden = !user;
+			if (user) {
+				ownerName = user.name;
+				localStorage.setItem('mawja-owner-name', ownerName);
+				document.querySelectorAll('.profile-mini strong, .composer-user strong').forEach((element) => element.textContent = ownerName);
+				document.querySelectorAll('.owner-picture').forEach((picture) => picture.textContent = ownerName.slice(0, 1));
+				applyLocale();
+			}
+		}
+		logoutButton.addEventListener('click', () => { localStorage.removeItem(sessionKey); setLoggedIn(null); showToast(locales[currentLocale].logout); });
+		loginForm.addEventListener('submit', async (event) => {
 			event.preventDefault();
-			if (!isSignupMode) { showToast('تسجيل الدخول الفعلي غير متاح قبل ربط الموقع بخادم آمن.'); return; }
-			const nextOwnerName = loginForm.elements.name.value.trim().slice(0, 40);
-			localStorage.setItem('mawja-owner-name', nextOwnerName);
-			ownerName = nextOwnerName;
-			document.querySelectorAll('.profile-mini strong, .composer-user strong').forEach((element) => element.textContent = ownerName);
-			document.querySelector('.welcome-row h1').innerHTML = `مرحباً <span>${escapeText(ownerName)}</span> <span>✦</span>`;
-			document.querySelectorAll('.owner-picture').forEach((picture) => picture.textContent = ownerName.slice(0, 1));
-			closeLogin();
-			showToast('تم إنشاء ملفك المحلي. كلمة المرور لا تُحفظ، والحساب غير متصل بالإنترنت.');
+			const email = loginForm.elements.email.value.trim().toLowerCase();
+			const password = loginForm.elements.password.value;
+			try {
+				const accounts = readAccounts();
+				if (isSignupMode) {
+					if (accounts[email]) { showToast(currentLocale === 'en' ? 'An account with this email already exists.' : 'هذا البريد مسجل بالفعل.'); return; }
+					const name = loginForm.elements.name.value.trim().slice(0, 40);
+					const salt = crypto.randomUUID();
+					accounts[email] = { name, salt, passwordHash: await passwordDigest(password, salt) };
+					localStorage.setItem(accountsKey, JSON.stringify(accounts));
+					localStorage.setItem(sessionKey, email);
+					setLoggedIn({ email, name });
+					isSignupMode = false;
+					document.getElementById('login-name-field').hidden = true;
+					loginForm.elements.name.required = false;
+					closeLogin();
+					showToast(currentLocale === 'en' ? 'Account created on this device.' : 'تم إنشاء الحساب على هذا الجهاز.');
+				} else {
+					const account = accounts[email];
+					if (!account || account.passwordHash !== await passwordDigest(password, account.salt)) { showToast(currentLocale === 'en' ? 'Email or password is incorrect.' : 'البريد الإلكتروني أو كلمة المرور غير صحيحة.'); return; }
+					localStorage.setItem(sessionKey, email);
+					setLoggedIn({ email, name: account.name });
+					closeLogin();
+					showToast(currentLocale === 'en' ? 'You are now logged in.' : 'تم تسجيل الدخول بنجاح.');
+				}
+				loginForm.reset();
+			} catch { showToast(currentLocale === 'en' ? 'Could not save the account in this browser.' : 'تعذر حفظ الحساب في هذا المتصفح.'); }
 		});
 
 		document.querySelectorAll('.like-button').forEach((button) => button.addEventListener('click', () => {
@@ -349,6 +425,11 @@
 			if (link.getAttribute('href') !== '#home') { event.preventDefault(); showToast('هذه مساحة شخصية؛ يمكنك كتابة منشوراتك وتعليقاتك هنا.'); }
 		}));
 		document.querySelectorAll('.story').forEach((story) => story.addEventListener('click', () => document.getElementById('open-create').click()));
+		const activeEmail = localStorage.getItem(sessionKey);
+		const activeAccount = activeEmail && readAccounts()[activeEmail];
+		if (activeAccount) setLoggedIn({ email: activeEmail, name: activeAccount.name });
+		else { localStorage.removeItem(sessionKey); setLoggedIn(null); }
+		applyLocale();
 		renderAllPosts();
 	</script>
 </body>
