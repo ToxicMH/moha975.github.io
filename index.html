@@ -17,6 +17,22 @@
 		.composer-user .owner-picture{width:32px;height:32px;font-size:12px}
 		.mobile-nav .owner-picture{width:27px;height:27px;border-width:1.5px;font-size:10px}
 		.private-notice{margin-bottom:8px}
+		.login-trigger{min-height:36px;padding:0 13px;border:1px solid #59436c;border-radius:10px;background:#241d2b;color:#e6c9ff;font-size:11px;font-weight:600;white-space:nowrap;cursor:pointer}
+		.login-backdrop{position:fixed;z-index:30;inset:0;display:grid;place-items:center;padding:18px;background:#08090dcc;backdrop-filter:blur(8px)}
+		.login-backdrop[hidden]{display:none}
+		.login-dialog{position:relative;width:min(100%,420px);padding:30px;border:1px solid #302d38;border-radius:16px;background:#17181d;box-shadow:0 24px 80px #0008}
+		.login-close{position:absolute;top:14px;left:14px;width:34px;height:34px;border:0;border-radius:9px;background:#222329;color:#c7c4cf;font-size:22px;cursor:pointer}
+		.login-brand{margin:0 0 4px;color:#d5aaff;font-size:12px;font-weight:700}
+		.login-dialog h2{margin:0 0 7px;font-size:22px}
+		.login-description{margin:0 0 22px;color:#92919c;font-size:12px;line-height:1.8}
+		.login-form{display:grid;gap:14px}
+		.login-form label{display:grid;gap:7px;color:#d2cfd8;font-size:11px}
+		.login-form label[hidden]{display:none}
+		.login-form input{width:100%;height:43px;padding:0 12px;border:1px solid #33343c;border-radius:9px;background:#101114;color:#f5f3f7;direction:rtl}
+		.login-submit{height:43px;margin-top:4px;border:0;border-radius:9px;background:linear-gradient(100deg,#b780ef,#dc88c5);color:#20152a;font-weight:700;cursor:pointer}
+		.login-switch{margin:17px 0 0;color:#aaa9b2;text-align:center;font-size:11px}
+		.login-switch button{padding:0;border:0;background:none;color:#d5aaff;font:inherit;font-weight:700;cursor:pointer}
+		.login-note{margin:16px 0 0;padding-top:13px;border-top:1px solid #292a31;color:#85838e;text-align:center;font-size:10px;line-height:1.7}
 		@media(max-width:600px){.private-notice{margin-top:12px}}
 	</style>
 </head>
@@ -44,7 +60,7 @@
 			<header class="topbar">
 				<div class="mobile-brand"><span class="brand-mark"><svg viewBox="0 0 40 40"><path d="M5 23c5-11 9 11 15 0s10 11 15 0"/><path d="M5 14c5-11 9 11 15 0s10 11 15 0"/></svg></span>موجة<span class="brand-dot">.</span></div>
 				<label class="search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="search-input" type="search" placeholder="ابحث عن أشخاص، مواضيع..." aria-label="ابحث"></label>
-				<div class="topbar-actions"><button class="icon-button notification-button" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="avatar-button" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></button></div>
+				<div class="topbar-actions"><button class="login-trigger" id="open-login" type="button">تسجيل الدخول</button><button class="icon-button notification-button" aria-label="الإشعارات"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="avatar-button" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></button></div>
 			</header>
 			<div class="content-grid">
 				<section class="feed-column" aria-label="آخر المنشورات">
@@ -97,10 +113,57 @@
 	<nav class="mobile-nav" aria-label="التنقل للجوال"><a class="selected" href="#home" aria-label="الرئيسية"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></a><a href="#discover" aria-label="اكتشف"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></a><button id="mobile-create" aria-label="إنشاء منشور">＋</button><a href="#videos" aria-label="الفيديوهات"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="#profile" aria-label="الملف الشخصي"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""></a></nav>
 	<div class="toast" id="toast" role="status" aria-live="polite"></div>
 	<div class="modal-backdrop" id="create-modal" aria-hidden="true"><section class="create-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-heading"><h2 id="modal-title">موجتك القادمة ✦</h2><button class="modal-close" id="close-modal" aria-label="إغلاق">×</button></div><div class="composer-user"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt=""><strong>سارة العتيبي</strong></div><textarea id="post-input" placeholder="وش حابة تشاركين اليوم؟" rows="4"></textarea><div class="upload-area"><span>＋</span><strong>أضيفي صورة أو فيديو</strong><small>اسحبي الملف هنا أو اختاري من جهازك</small><input type="file" id="file-input" accept="image/*,video/*"></div><div class="modal-footer"><span>✧ شاركي لحظتك مع مجتمعك</span><button class="publish-button" id="publish-post">نشر المنشور <span>←</span></button></div></section></div>
+	<div class="login-backdrop" id="login-modal" hidden>
+		<section class="login-dialog" role="dialog" aria-modal="true" aria-labelledby="login-title">
+			<button class="login-close" id="close-login" type="button" aria-label="إغلاق">×</button>
+			<p class="login-brand">موجة ✦</p>
+			<h2 id="login-title">مرحباً بعودتك</h2>
+			<p class="login-description" id="login-description">سجّل الدخول لتتابع مساحتك ومنشوراتك.</p>
+			<form class="login-form" id="login-form">
+				<label id="login-name-field" hidden>الاسم<input name="name" type="text" autocomplete="name" maxlength="40"></label>
+				<label>البريد الإلكتروني<input name="email" type="email" autocomplete="email" placeholder="name@example.com" required></label>
+				<label>كلمة المرور<input name="password" type="password" autocomplete="current-password" minlength="8" placeholder="8 أحرف على الأقل" required></label>
+				<button class="login-submit" id="login-submit" type="submit">تسجيل الدخول</button>
+			</form>
+			<p class="login-switch"><span id="login-switch-label">ليس لديك حساب؟</span> <button id="login-switch" type="button">إنشاء حساب</button></p>
+			<p class="login-note">واجهة تجريبية فقط؛ تسجيل الحسابات والتحقق من كلمات المرور يحتاجان إلى خادم آمن.</p>
+		</section>
+	</div>
 	<script>
 		const toast = document.getElementById('toast');
 		let toastTimer;
 		function showToast(message) { toast.textContent = message; toast.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('visible'), 2400); }
+		const loginModal = document.getElementById('login-modal');
+		const loginForm = document.getElementById('login-form');
+		let isSignupMode = false;
+		function openLogin() { loginModal.hidden = false; loginForm.elements.email.focus(); }
+		function closeLogin() { loginModal.hidden = true; }
+		document.getElementById('open-login').addEventListener('click', openLogin);
+		document.getElementById('close-login').addEventListener('click', closeLogin);
+		loginModal.addEventListener('click', (event) => { if (event.target === loginModal) closeLogin(); });
+		document.getElementById('login-switch').addEventListener('click', () => {
+			isSignupMode = !isSignupMode;
+			document.getElementById('login-title').textContent = isSignupMode ? 'أنشئ حسابك' : 'مرحباً بعودتك';
+			document.getElementById('login-description').textContent = isSignupMode ? 'انضم إلى موجة وابدأ مشاركة أفكارك.' : 'سجّل الدخول لتتابع مساحتك ومنشوراتك.';
+			document.getElementById('login-name-field').hidden = !isSignupMode;
+			loginForm.elements.name.required = isSignupMode;
+			loginForm.elements.password.autocomplete = isSignupMode ? 'new-password' : 'current-password';
+			document.getElementById('login-submit').textContent = isSignupMode ? 'إنشاء الحساب' : 'تسجيل الدخول';
+			document.getElementById('login-switch-label').textContent = isSignupMode ? 'لديك حساب بالفعل؟' : 'ليس لديك حساب؟';
+			document.getElementById('login-switch').textContent = isSignupMode ? 'تسجيل الدخول' : 'إنشاء حساب';
+		});
+		loginForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			if (!isSignupMode) { showToast('تسجيل الدخول الفعلي غير متاح قبل ربط الموقع بخادم آمن.'); return; }
+			const nextOwnerName = loginForm.elements.name.value.trim().slice(0, 40);
+			localStorage.setItem('mawja-owner-name', nextOwnerName);
+			ownerName = nextOwnerName;
+			document.querySelectorAll('.profile-mini strong, .composer-user strong').forEach((element) => element.textContent = ownerName);
+			document.querySelector('.welcome-row h1').innerHTML = `مرحباً <span>${escapeText(ownerName)}</span> <span>✦</span>`;
+			document.querySelectorAll('.owner-picture').forEach((picture) => picture.textContent = ownerName.slice(0, 1));
+			closeLogin();
+			showToast('تم إنشاء ملفك المحلي. كلمة المرور لا تُحفظ، والحساب غير متصل بالإنترنت.');
+		});
 
 		document.querySelectorAll('.like-button').forEach((button) => button.addEventListener('click', () => {
 			button.classList.toggle('liked');
@@ -137,7 +200,7 @@
 
 		const OWNER_KEY = 'mawja-owner-name';
 		const POSTS_KEY = 'mawja-private-posts-v1';
-		const ownerName = localStorage.getItem(OWNER_KEY) || 'صاحب الموقع';
+		let ownerName = localStorage.getItem(OWNER_KEY) || 'صاحب الموقع';
 		const feed = document.querySelector('.feed-column');
 		const originalEmptyState = document.getElementById('empty-state');
 		document.querySelectorAll('.post-card').forEach((post) => post.remove());
